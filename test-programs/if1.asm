@@ -17,42 +17,42 @@ _main:	push rbp
 	mov rbp, rsp
 	sub rsp, 160
 	mov esi, 1
-	mov [rbp-64], esi
+	mov [rbp-56], esi
 	mov esi, 0
 	mov [rbp-8], esi
 	mov edi, [rbp-8]
-	mov eax, [rbp-64]
+	mov eax, [rbp-56]
 	cmp eax, edi
-	mov [rbp-64], eax
+	mov [rbp-56], eax
 	jz lab1262
 	jmp lab1266
 lab1262:	mov esi, 1
 	mov [rbp-16], esi
 	mov esi, 2
-	mov [rbp-56], esi
-	mov esi, [rbp-16]
 	mov [rbp-48], esi
-	mov edi, [rbp-56]
-	mov eax, [rbp-48]
+	mov esi, [rbp-16]
+	mov [rbp-40], esi
+	mov edi, [rbp-48]
+	mov eax, [rbp-40]
 	add eax, edi
-	mov [rbp-48], eax
-	mov esi, [rbp-48]
+	mov [rbp-40], eax
+	mov esi, [rbp-40]
 	lea rdi, [rel int_format]
 	mov eax, 0
 	call _printf
 	mov rax, 0
 	jmp finish_up
 lab1266:	mov esi, 3
-	mov [rbp-40], esi
-	mov esi, 4
 	mov [rbp-32], esi
-	mov esi, [rbp-40]
+	mov esi, 4
 	mov [rbp-24], esi
-	mov edi, [rbp-32]
-	mov eax, [rbp-24]
+	mov esi, [rbp-32]
+	mov [rbp-80], esi
+	mov edi, [rbp-24]
+	mov eax, [rbp-80]
 	imul eax, edi
-	mov [rbp-24], eax
-	mov esi, [rbp-24]
+	mov [rbp-80], eax
+	mov esi, [rbp-80]
 	lea rdi, [rel int_format]
 	mov eax, 0
 	call _printf

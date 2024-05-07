@@ -31,6 +31,8 @@ racket compiler.rkt -v test-programs/sum1.irv
 
 (Also pass in -m for Mac)
 
+IR-Virtual is a step in the compilation process that represents assembly code with virtual registers. Virtual registers are like placeholders for actual registers that will be used in the final assembly x86 code. The purpose of this stage is to simplify the compilation process by reducing the complexity of dealing with actual hardware registers and memory locations. During this stage, the compiler generates instructions that operate on these virtual registers. These instructions mimic the behavior of the target architecture's assembly language but abstract away the specific details of register allocation and memory management. For example, instead of directly using physical registers like "rax" or "rbx," the compiler may use generic register names like "r1" or "r2" to represent virtual registers. The advantage of using virtual registers is that it simplifies the subsequent stages of the compilation process, such as optimization and code generation. Additionally, it allows the compiler to focus on generating correct and efficient code without being tied to the limitations of a specific hardware architecture. In summary, the IR-Virtual stage serves as an intermediate representation of the IfArith's logic and control flow, expressed in terms of virtual registers, before being translated into actual assembly code in later stages of the compilation pipeline.
+
 [ Question 2 ] 
 
 For this task, you will write three new .ifa programs. Your programs
@@ -46,8 +48,15 @@ from the compiler. Read through each of the phases, by passing in the
 `-v` flag to the compiler. For at least one of the programs, explain
 carefully the relevance of each of the intermediate representations.
 
+Test cases:
+
+Unfortunately, our group was having trouble to get the compiler to run on any sort of test file. We were able to run the compiler.rkt file, but whenever we'd run the lp line of code, it would say that our excutable file was not found. Which is strange because we're seeing the .o file in our directory. 
+
+However, with our knowledge of compilers, executable files, and the fibonacci sequence, we expect that when the test is run from main, it will assign the number 8 to one of the registers, pass that register as the parameter for the fibonacci function and the recursively calculate the 8th fibonacci number. Afterwards, it will print that result. 
+
 For this question, please add your `.ifa` programs either (a) here or
-(b) to the repo and write where they are in this file.
+(b) to the repo and write where they are in this file. 
+The .ifa programs are in the test-programs directory and are called test1.ifa, test2.ifa, and test3.ifa.
 
 [ Question 3 ] 
 
@@ -60,6 +69,8 @@ there could be more?
 
 In answering this question, you must use specific examples that you
 got from running the compiler and generating an output.
+
+Once again, we couldn't get the compiler to work, so we don't have any specific examples to give you. However, we think there are enough layers and that none should be added or taken away. The first layer defines all the terms in our language, the second tells the compiler what to do for each term in our language, the third layer turns the compiler we made into abstract normal form so the compiler built in on our devices is able to understand the compiler we've just created, in the fourth step the function creates registers that are used in any unix based operating system, and then finally in step 5 we're able to take the ANF and use the registers we created in step 4 to run our program. If we were to remove any of the steps, the compiler wouldn't work with a unix based OS. Adding anymore steps would just be redundent and unnecessary. 
 
 [ Question 4 ] 
 
@@ -99,3 +110,4 @@ nuts and bolts of code, try to use this experience as a way to think
 about how you would approach doing group code critique. What would you
 do differently next time, what did you learn?
 
+Doing this project, our group learned more about compilers and the steps of how to make one from scratch. We found it interesting that we were able collaborate and hear different ideas as to how we should go about creating a compiler and how our different styles of coding blend together to attempt to create a functioning compiler. We found it rather difficult to actually get the compiler to run an executable file. We have managed to get through the step of compiling the file, but when we would go to execute, we were getting an error that our .o file couldn't be found even though the compiler was creating the file. For next time, we would definetly start our project earlier so we can spend more time debugging our code. We feel as though if we had started earlier, we would have been able to find the bug in our code that was causeing our executable file to just go into the abyss. 

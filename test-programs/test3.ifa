@@ -1,0 +1,15 @@
+#lang racket
+
+(require rackunit)
+
+(define (geometric-sequence a r n)
+    (if (zero? n)
+            '()
+            (cons a (geometric-sequence (* a r) r (- n 1)))))
+
+(define (test-geometric-sequence)
+    (check-equal? (geometric-sequence 2 3 5) '(2 6 18 54 162))
+    (check-equal? (geometric-sequence 1 2 4) '(1 2 4 8))
+    (check-equal? (geometric-sequence 3 0.5 6) '(3 1.5 0.75 0.375 0.1875 0.09375)))
+
+(test-geometric-sequence)

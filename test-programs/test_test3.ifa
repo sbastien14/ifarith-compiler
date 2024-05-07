@@ -1,0 +1,22 @@
+#lang racket
+
+; Function to generate a geometric sequence
+(define (generate-geometric-sequence a r n)
+  (define sequence '())
+  (for ([i (in-range n)])
+    (define term (* a (expt r i)))
+    (set! sequence (append sequence (list term))))
+  sequence)
+
+; Test case
+(define a 2) ; First term
+(define r 3) ; Common ratio
+(define n 5) ; Number of terms
+
+; Generate the geometric sequence
+(define sequence (generate-geometric-sequence a r n))
+
+; Print the sequence
+(printf "Geometric sequence:\n")
+(for ([term sequence])
+  (printf "~a\n" term))
