@@ -82,6 +82,8 @@ definition of what an idiom is: think carefully about whether you see
 any pattern in this code that resonates with you from earlier in the
 semester.
 
+There were different programming idioms that we identified in the project that we discussed in class the semester. For example, pattern matching is used mainly in functions like "ifarith?", "ifarith-tiny?" and "anf->ir-virtual". The functions pattern match expressions in IfArith to identify primitive operations, conditional statements and more. Tail recursion was also utilized in functions like "linearize" withing the "anf->ir-virtual translation step. Higher-order functions were also used specifically in translation functions like "ifarith->ifarith-tiny", "ifarith-tiny->anf" and "anf->ir-virtual". These functions take other functinos as arguments to handle differnt stages of the compile.
+
 [ Question 5 ] 
 
 In this question, you will play the role of bug finder. I would like
